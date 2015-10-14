@@ -34,8 +34,20 @@ var config = {
   }
 , hostname: null
 , port: 4000
+// , model: {
+//     defaultAdapter: 'filesystem'
+//   }
 , model: {
-    defaultAdapter: 'filesystem'
+    defaultAdapter: 'postgres'
+  }
+, db: { 
+  postgresql: {
+      port: 5432
+    , password: 'geddyuser'
+    , database: 'crudbasico'
+    , host: 'localhost'
+    , user: 'geddyuser' 
+    }
   }
 , sessions: {
     store: 'filesystem'
