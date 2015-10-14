@@ -1,0 +1,14 @@
+.hero-unit
+  h2 All Pessoas
+  != linkTo('Create a new Pessoa', addPessoaPath, {class: 'btn pull-right'})
+
+div#pessoas-list
+  if pessoas
+    each pessoa in pessoas
+      .row.list-item(id="pessoa-" + pessoa.id)
+        .span8
+          h3!= linkTo(pessoa.id, pessoaPath(pessoa.id))
+        .span4
+          h3
+            i.icon-list-alt
+            = pessoa.id

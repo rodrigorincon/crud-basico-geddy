@@ -1,0 +1,16 @@
+.control-group
+  label(for="nome", class="control-label") nome
+  .controls
+    != contentTag('input', pessoa.nome, {type:'text', class:'span6', name:'nome'})
+.control-group
+  label(for="email", class="control-label") email
+  .controls
+    != contentTag('input', pessoa.email, {type:'text', class:'span6', name:'email'})
+.control-group
+  label(for="dataNascimento", class="control-label") dataNascimento
+  .controls
+    != contentTag('input', pessoa.dataNascimento, {type:'date', class:'span2', name:'dataNascimento'})
+.control-group
+  label(for="senha", class="control-label") senha
+  .controls
+    != contentTag('input', pessoa.senha, {type:'text', class:'span6', name:'senha'})
