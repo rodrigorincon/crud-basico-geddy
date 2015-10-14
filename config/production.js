@@ -21,19 +21,19 @@ var config = {
 , detailedErrors: false
 , hostname: null
 , port: 4000
-, model: {
-    defaultAdapter: 'mongo'
-  }
-, db: {
-    mongo: {
-      username: null
-    , dbname: 'production'
-    , prefix: null
-    , password: null
-    , host: 'localhost'
-    , port: 27017
-    }
-  }
+// , model: {
+//     defaultAdapter: 'mongo'
+//   }
+// , db: {
+//     mongo: {
+//       username: null
+//     , dbname: 'production'
+//     , prefix: null
+//     , password: null
+//     , host: 'localhost'
+//     , port: 27017
+//     }
+//   }
 
 /* // Using Postgres as the default, with only a Postgres DB
 , model: {
@@ -50,6 +50,19 @@ var config = {
     }
   }
 */
+, model: {
+    defaultAdapter: 'postgres'
+  }
+, db: { 
+  postgresql: {
+      port: 5432
+    , password: 'geddyuser'
+    , database: 'crudbasico'
+    , host: 'localhost'
+    , user: 'geddyuser' 
+    , ssl: true
+    }
+  }
 
 /* // Using MySQL as the default, with only a MySQL DB
 , model: {
