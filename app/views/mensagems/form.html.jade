@@ -1,0 +1,14 @@
+.control-group
+  label(for="texto", class="control-label") texto
+  .controls
+    != contentTag('textarea', mensagem.texto, {class: 'span6', name: 'texto', rows: 10})
+.control-group
+  label(for="data", class="control-label") data
+  .controls
+    != contentTag('input', mensagem.data, {type:'date', class:'span2', name:'data'})
+.control-group
+  label(for="pessoaId", class="control-label") Pessoa que escreveu
+  .controls
+    select(id="mensagem.pessoaId", name="pessoaId")
+      each pessoa in pessoas
+        option(value=pessoa.id) #{pessoa.nome}

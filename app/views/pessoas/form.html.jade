@@ -14,3 +14,7 @@
   label(for="senha", class="control-label") senha
   .controls
     != contentTag('input', pessoa.senha, {type:'text', class:'span6', name:'senha'})
+.control-group
+  label(for="confirmPassword", class="control-label") Confirme sua senha
+  .controls
+    != contentTag('input', pessoa.confirmPassword, {type:'text', class:'span6', name:'confirmPassword'})

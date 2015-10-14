@@ -1,0 +1,14 @@
+.hero-unit
+  h2 All mensagems
+  != linkTo('Create a new Mensagem', addMensagemPath, {class: 'btn pull-right'})
+
+div#mensagems-list
+  if mensagems
+    each mensagem in mensagems
+      .row.list-item(id="mensagem-" + mensagem.id)
+        .span8
+          h3!= linkTo(mensagem.id, mensagemPath(mensagem.id))
+        .span4
+          h3
+            i.icon-list-alt
+            = mensagem.id

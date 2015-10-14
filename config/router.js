@@ -31,13 +31,15 @@ router.get('/').to('Main.index');
 // router.del('/xandadu/:id').to('Xanadu.killItWithFire');
 //
 // Resource-based routes
-// router.resource('hemispheres');
+// router.resource('mensagens');
 //
 // Nested Resource-based routes
-// router.resource('hemispheres').nest(function(){
+// router.resource('mensagens').nest(function(){
 //   this.resource('countries');
-//   this.get('/print(.:format)').to('Hemispheres.print');
+//   this.get('/print(.:format)').to('mensagens.print');
 // });
 
 router.resource('pessoas');
+router.resource('mensagems');
+
 exports.router = router;

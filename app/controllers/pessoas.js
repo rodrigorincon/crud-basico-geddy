@@ -44,7 +44,13 @@ var Pessoas = function () {
         throw new geddy.errors.NotFoundError();
       }
       else {
-        self.respondWith(pessoa);
+        pessoa.getMensagems(function (err, mensagens) {
+          if (err) {
+            throw err;
+          }
+          pessoa.mensagems = mensagens;
+          self.respondWith(pessoa);
+        });
       }
     });
   };

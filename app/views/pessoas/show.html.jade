@@ -1,11 +1,11 @@
 .hero-unit
-  h2.id= pessoa.id
+  h2.id= pessoa.nome
   != linkTo('Edit this pessoa', editPessoaPath(params.id), {class: 'btn pull-right'})
   != linkTo('Back to list', pessoaPath(''), {class: 'btn pull-right'})
 
 h2 Pessoa Properties
 each property, key in pessoa
-  if key !== 'saved'
+  if key !== 'saved' && key !== 'mensagems'
     .row.list-item
       .span4
         h3= key
@@ -13,3 +13,11 @@ each property, key in pessoa
         h3
           i.icon-list-alt
           span(class=key)= property
+
+h2 Suas mensagens
+each mensagem in pessoa.mensagems
+  .row.list-item
+    .span4
+      h3= mensagem.data
+    .span8
+      h3= mensagem.texto

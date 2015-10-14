@@ -1,0 +1,15 @@
+.hero-unit
+  form#mensagem-form.form-horizontal(action="/mensagems/" + params.id + "?_method=PUT", method="POST")
+    fieldset
+      legend Update this Mensagem
+      if params.errors
+        .control-group
+          ul
+          for err in params.errors
+            li= err
+
+      != partial('form', {mensagem: mensagem, pessoas: pessoas})
+
+      .form-actions
+        != contentTag('input', 'Save', {type: 'submit', class: 'btn btn-primary'})
+        != contentTag('button', 'Remove', {type: 'submit', formaction: '/mensagems/' + params.id + '?_method=DELETE', formmethod: 'POST', class: 'btn btn-danger'})

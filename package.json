@@ -4,7 +4,9 @@
   "author": "",
   "dependencies": {
     "jade": "*",
-    "pg": "2.5.x"
+    "pg": "2.5.x",
+    "texto:string%data:date": "*",
+    "mensagens%texto:string%data:date": "*"
   },
   "devDependencies": {},
   "engines": {
