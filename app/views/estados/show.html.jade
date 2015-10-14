@@ -1,0 +1,15 @@
+.hero-unit
+  h2.id= estado.id
+  != linkTo('Edit this estado', editEstadoPath(params.id), {class: 'btn pull-right'})
+  != linkTo('Back to list', estadoPath(''), {class: 'btn pull-right'})
+
+h2 Estado Properties
+each property, key in estado
+  if key !== 'saved'
+    .row.list-item
+      .span4
+        h3= key
+      .span8
+        h3
+          i.icon-list-alt
+          span(class=key)= property

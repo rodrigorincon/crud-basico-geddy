@@ -18,3 +18,9 @@
   label(for="confirmPassword", class="control-label") Confirme sua senha
   .controls
     != contentTag('input', pessoa.confirmPassword, {type:'text', class:'span6', name:'confirmPassword'})
+.control-group
+  label(for="estadoId", class="control-label") Estado
+  .controls
+    select(id="pessoa.estadoId", name="estadoId")
+      each estado in estados
+        option(value=estado.id) #{estado.nome}

@@ -1,4 +1,19 @@
 (function () {
+var Estado = function () {
+
+  this.defineProperties({
+    nome: {type: 'string'}
+  });
+
+  this.validatesPresent('nome');
+
+  this.hasMany('Pessoas');
+};
+
+Estado = geddy.model.register('Estado', Estado);
+}());
+
+(function () {
 var Mensagem = function () {
 
   this.defineProperties({
@@ -44,6 +59,7 @@ var Pessoa = function () {
   this.validatesFormat('email', /^[-a-z0-9~!$%^&*_=+}{\?]+(\.[-a-z0-9~!$%^&*_=+}{\?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i, {message: 'email errado!'});
 
   this.hasMany('Mensagems');
+  this.belongsTo('Estado');
 
 };
 

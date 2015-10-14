@@ -13,7 +13,15 @@ var Pessoas = function () {
   };
 
   this.add = function (req, resp, params) {
-    this.respond({params: params});
+    var self = this;
+    geddy.model.Estado.all(function (err, data) {
+      if (err) {
+        throw err;
+      }if(!data){
+        throw new geddy.errors.NotFoundError();
+      }
+      self.respond({params: params, estados: data});
+    });
   };
 
   this.create = function (req, resp, params) {
@@ -49,7 +57,15 @@ var Pessoas = function () {
             throw err;
           }
           pessoa.mensagems = mensagens;
-          self.respondWith(pessoa);
+          pessoa.getEstado(function (err, estado) {
+            if (err) {
+              throw err;
+            }if(!estado){
+              throw new geddy.errors.NotFoundError();
+            }
+            pessoa.estado = estado.nome;
+            self.respondWith(pessoa);
+          });
         });
       }
     });
@@ -66,7 +82,14 @@ var Pessoas = function () {
         throw new geddy.errors.BadRequestError();
       }
       else {
-        self.respondWith(pessoa);
+        geddy.model.Estado.all(function (err, data) {
+          if (err) {
+            throw err;
+          }if(!data){
+            throw new geddy.errors.NotFoundError();
+          }
+          self.respond({pessoa: pessoa, estados: data});
+        });
       }
     });
   };

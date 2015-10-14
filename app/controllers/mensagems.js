@@ -53,6 +53,8 @@ var Mensagems = function () {
         mensagem.getPessoa(function(err,data){
           if (err) {
             throw err;
+          }if(!data){
+            throw new geddy.errors.NotFoundError();
           }
           //FEEL THE POWER OF GAMBIARRA!
           mensagem.pessoa = data

@@ -1,0 +1,10 @@
+.hero-unit
+  h2 All Estados
+  != linkTo('Create a new Estado', addEstadoPath, {class: 'btn pull-right'})
+
+div#estados-list
+  if estados
+    each estado in estados
+      .row.list-item(id="estado-" + estado.nome)
+        h3!= linkTo(estado.nome, estadoPath(estado.id))
+        

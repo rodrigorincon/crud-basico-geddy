@@ -41,5 +41,5 @@ router.get('/').to('Main.index');
 
 router.resource('pessoas');
 router.resource('mensagems');
-
+router.resource('estados');
 exports.router = router;

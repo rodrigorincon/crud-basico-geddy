@@ -8,7 +8,7 @@
           for err in params.errors
             li= err
 
-      != partial('form', {pessoa: pessoa})
+      != partial('form', {pessoa: pessoa, estados: estados})
 
       .form-actions
         != contentTag('input', 'Save', {type: 'submit', class: 'btn btn-primary'})
