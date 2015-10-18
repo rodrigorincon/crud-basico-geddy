@@ -1,0 +1,23 @@
+<div class="hero-unit">
+  <form id="emocao-form" class="form-horizontal" action="/emocaos/<%= params.id %>?_method=PUT" method="POST">
+    <fieldset>
+      <legend>Update this Emocao</legend>
+      <% if(params.errors) { %>
+      <div class="control-group">
+        <ul>
+        <% for(var err in params.errors) { %>
+          <li><%= params.errors[err]; %></li>
+        <% } %>
+        </ul>
+      </div>
+      <% } %>
+
+      <%- partial('form', {emocao: emocao}) %>
+
+      <div class="form-actions">
+        <%- contentTag('input', 'Save', {type: 'submit', class: 'btn btn-primary'}) %>
+        <%- contentTag('button', 'Remove', {type: 'submit', formaction: '/emocaos/' + params.id + '?_method=DELETE', formmethod: 'POST', class: 'btn btn-danger'}) %>
+      </div>
+    </fieldset>
+  </form>
+</div>

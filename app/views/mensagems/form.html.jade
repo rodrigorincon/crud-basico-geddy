@@ -11,4 +11,22 @@
   .controls
     select(id="mensagem.pessoaId", name="pessoaId")
       each pessoa in pessoas
-        option(value=pessoa.id) #{pessoa.nome}
+        if mensagem.pessoa != null && pessoa.id == mensagem.pessoa.id
+          option(value=pessoa.id, selected="true") #{pessoa.nome}
+        else
+          option(value=pessoa.id) #{pessoa.nome}
+
+.control-group
+  label(for="emocaosId", class="control-label") emoções
+  .controls
+    each em in emocaos
+      .checkbox
+        - var verifica_checked = false
+        each m_em in minhas_emocaos
+          if em.id == m_em.id
+            - verifica_checked = true
+        if verifica_checked == true
+          != contentTag('input', em.id, {type:'checkbox', name:'emocaos', checked:true})
+        else
+          != contentTag('input', em.id, {type:'checkbox', name:'emocaos' })
+        label #{em.emoticon}

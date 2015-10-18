@@ -1,20 +1,20 @@
 var assert = require('assert')
   , tests
-  , Estado = geddy.model.Estado;
+  , Emocao = geddy.model.Emocao;
 
 tests = {
 
   'after': function (next) {
     // cleanup DB
-    Estado.remove({}, function (err, data) {
+    Emocao.remove({}, function (err, data) {
       if (err) { throw err; }
       next();
     });
   }
 
 , 'simple test if the model saves without a error': function (next) {
-    var estado = Estado.create({});
-    estado.save(function (err, data) {
+    var emocao = Emocao.create({});
+    emocao.save(function (err, data) {
       assert.equal(err, null);
       next();
     });

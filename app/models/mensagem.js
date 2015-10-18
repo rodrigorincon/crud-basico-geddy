@@ -9,6 +9,8 @@ var Mensagem = function () {
   this.validatesPresent('data');
 
   this.belongsTo('Pessoa');
+  this.hasMany('Assocs');
+  this.hasMany('Emocaos', {through: 'Assocs'});
 
 };
 

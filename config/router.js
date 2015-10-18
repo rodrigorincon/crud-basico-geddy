@@ -41,5 +41,9 @@ router.get('/').to('Main.index');
 
 router.resource('pessoas');
 router.resource('mensagems');
-router.resource('estados');
+router.resource('emocaos');
+
+// router.resource('mensagem2s');
+// router.resource('emocao2s');
+
 exports.router = router;

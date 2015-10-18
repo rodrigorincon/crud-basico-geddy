@@ -1,14 +1,14 @@
-var Estados = function () {
+var Emocaos = function () {
   this.respondsWith = ['html', 'json', 'xml', 'js', 'txt'];
 
   this.index = function (req, resp, params) {
     var self = this;
 
-    geddy.model.Estado.all(function(err, estados) {
+    geddy.model.Emocao.all(function(err, emocaos) {
       if (err) {
         throw err;
       }
-      self.respondWith(estados, {type:'Estado'});
+      self.respondWith(emocaos, {type:'Emocao'});
     });
   };
 
@@ -18,17 +18,17 @@ var Estados = function () {
 
   this.create = function (req, resp, params) {
     var self = this
-      , estado = geddy.model.Estado.create(params);
+      , emocao = geddy.model.Emocao.create(params);
 
-    if (!estado.isValid()) {
-      this.respondWith(estado);
+    if (!emocao.isValid()) {
+      this.respondWith(emocao);
     }
     else {
-      estado.save(function(err, data) {
+      emocao.save(function(err, data) {
         if (err) {
           throw err;
         }
-        self.respondWith(estado, {status: err});
+        self.respondWith(emocao, {status: err});
       });
     }
   };
@@ -36,15 +36,15 @@ var Estados = function () {
   this.show = function (req, resp, params) {
     var self = this;
 
-    geddy.model.Estado.first(params.id, function(err, estado) {
+    geddy.model.Emocao.first(params.id, function(err, emocao) {
       if (err) {
         throw err;
       }
-      if (!estado) {
+      if (!emocao) {
         throw new geddy.errors.NotFoundError();
       }
       else {
-        self.respondWith(estado);
+        self.respondWith(emocao);
       }
     });
   };
@@ -52,15 +52,15 @@ var Estados = function () {
   this.edit = function (req, resp, params) {
     var self = this;
 
-    geddy.model.Estado.first(params.id, function(err, estado) {
+    geddy.model.Emocao.first(params.id, function(err, emocao) {
       if (err) {
         throw err;
       }
-      if (!estado) {
+      if (!emocao) {
         throw new geddy.errors.BadRequestError();
       }
       else {
-        self.respondWith(estado);
+        self.respondWith(emocao);
       }
     });
   };
@@ -68,21 +68,21 @@ var Estados = function () {
   this.update = function (req, resp, params) {
     var self = this;
 
-    geddy.model.Estado.first(params.id, function(err, estado) {
+    geddy.model.Emocao.first(params.id, function(err, emocao) {
       if (err) {
         throw err;
       }
-      estado.updateProperties(params);
+      emocao.updateProperties(params);
 
-      if (!estado.isValid()) {
-        self.respondWith(estado);
+      if (!emocao.isValid()) {
+        self.respondWith(emocao);
       }
       else {
-        estado.save(function(err, data) {
+        emocao.save(function(err, data) {
           if (err) {
             throw err;
           }
-          self.respondWith(estado, {status: err});
+          self.respondWith(emocao, {status: err});
         });
       }
     });
@@ -91,19 +91,19 @@ var Estados = function () {
   this.remove = function (req, resp, params) {
     var self = this;
 
-    geddy.model.Estado.first(params.id, function(err, estado) {
+    geddy.model.Emocao.first(params.id, function(err, emocao) {
       if (err) {
         throw err;
       }
-      if (!estado) {
+      if (!emocao) {
         throw new geddy.errors.BadRequestError();
       }
       else {
-        geddy.model.Estado.remove(params.id, function(err) {
+        geddy.model.Emocao.remove(params.id, function(err) {
           if (err) {
             throw err;
           }
-          self.respondWith(estado);
+          self.respondWith(emocao);
         });
       }
     });
@@ -111,4 +111,4 @@ var Estados = function () {
 
 };
 
-exports.Estados = Estados;
+exports.Emocaos = Emocaos;

@@ -1,0 +1,19 @@
+<div class="hero-unit">
+  <h2>All Emocaos</h2>
+  <%- linkTo('Create a new Emocao', addEmocaoPath, {class: 'btn pull-right'}); %>
+</div>
+
+<div id="emocaos-list">
+<% if (emocaos) { %>
+<% for (var i = 0, ii = emocaos.length; i < ii; i++) { %>
+  <div class="row list-item" id="emocao-<%= emocaos[i].id; %>">
+    <div class="span8">
+      <h3><%- linkTo(emocaos[i].id, emocaoPath(emocaos[i].id)); %></h3>
+    </div>
+    <div class="span4">
+      <h3><i class="icon-list-alt"></i><%= emocaos[i].id; %></h3>
+    </div>
+  </div>
+<% } %>
+<% } %>
+</div>
